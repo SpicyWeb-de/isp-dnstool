@@ -1,0 +1,29 @@
+{
+    "name": "spicyweb/dnsapi",
+    "description": "A helper tool to sync DNSSEC information from ISPConfig to INWX domain registry",
+    "type": "project",
+    "require": {
+        "inwx/domrobot": "^3.1",
+        "gdm/ispconfig-soap-client": "^0.0.3",
+        "ext-readline": "*",
+        "ext-curl": "*",
+        "ext-soap": "*",
+        "ext-json": "*",
+        "splitbrain/php-cli": "^1.1",
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "license": "MIT",
+    "readme": "./README.md",
+    "homepage": "https://github.com/SpicyWeb-de/isp-dnstool",
+    "support": {
+        "source": "https://github.com/SpicyWeb-de/isp-dnstool",
+        "issues": "https://github.com/SpicyWeb-de/isp-dnstool/issues"
+    },
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Michael Fürmann",
+            "email": "michael@spicyweb.de"
+        }
+    ]
+}
