@@ -9,8 +9,10 @@ namespace isp;
  * Auto-Connects to ISPConfig Remote API and provides required operations with the client api lib
  * @package isp
  */
-class ISPClientApi extends ISPConnector
+class ISPClientApi
 {
+    use ISPConnector;
+
     /**
      * Instance of this class for singleton
      * @var ISPClientApi Instance of class for singleton

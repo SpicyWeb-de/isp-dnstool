@@ -10,7 +10,7 @@ use core\CONSOLE;
  * sets some session options based on ENV variables and clean disconnects on destruct.
  * @package inwx
  */
-abstract class INWXConnector{
+trait INWXConnector{
     /**
      * Instance of the official Api Class provided by INWX
      * @var \INWX\Domrobot Instance of INWX Api Class

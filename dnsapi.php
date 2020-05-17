@@ -15,7 +15,7 @@ use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
 use core\CONSOLE;
 use isp\ISPDnssec;
-use \inwx\INWXDNSSecApi;
+use \inwx\DnssecApiInwx;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -77,38 +77,38 @@ class DNSAPI extends CLI
                 return;
             }
             // Prepare. Load ISP Export file and published keys from INWX
-            INWXDNSSecApi::instance()
+            DnssecApiInwx::instance()
                 ->loadISPKeys()
-                ->loadPublishedKeys()
+                ->loadRemoteKeys()
             // Match the keys from ISPConfig and INWX
                 ->matchListedDomains();
             // loop all options and perform API actions in requested order
             foreach($options->getOpt() as $opt => $optval){
                 switch($opt){
                     case 'summary':
-                        INWXDNSSecApi::instance()->printSummary();
+                        DnssecApiInwx::instance()->printSummary();
                         break;
                     case 'report':
-                        INWXDNSSecApi::instance()->printReport();
+                        DnssecApiInwx::instance()->printReport();
                         break;
                     case 'list':
-                        INWXDNSSecApi::instance()->printDomainList();
+                        DnssecApiInwx::instance()->printDomainList();
                         break;
                     case 'publish':
-                        INWXDNSSecApi::instance()->publishAllUnpublishedKeys();
+                        DnssecApiInwx::instance()->publishUnpublishedKeys();
                         break;
                     case 'clean':
-                        INWXDNSSecApi::instance()->cleanCorruptedKeys($optval);
-                        INWXDNSSecApi::instance()->cleanOrphanedKeys($optval);
+                        DnssecApiInwx::instance()->cleanCorruptedKeys($optval);
+                        DnssecApiInwx::instance()->cleanOrphanedKeys($optval);
                         break;
                     case 'cleanorphans':
-                        INWXDNSSecApi::instance()->cleanOrphanedKeys();
+                        DnssecApiInwx::instance()->cleanOrphanedKeys();
                         break;
                     case 'cleancorrupt':
-                        INWXDNSSecApi::instance()->cleanCorruptedKeys();
+                        DnssecApiInwx::instance()->cleanCorruptedKeys();
                         break;
                     case 'keylist':
-                        INWXDNSSecApi::instance()->printZoneKeys($optval);
+                        DnssecApiInwx::instance()->printZoneKeys($optval);
                         break;
                 }
             }

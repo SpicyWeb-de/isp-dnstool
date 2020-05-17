@@ -9,7 +9,7 @@ use core\CONSOLE;
  * Automatically connects to ISPConfig Remote API during construct and terminates the session on destruct
  * @package isp
  */
-abstract class ISPConnector
+trait ISPConnector
 {
     /**
      * @var \GDM\ISPConfig\SoapClient Instance of ISPConfig Remote API Library

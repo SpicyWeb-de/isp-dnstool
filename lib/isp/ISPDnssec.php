@@ -9,8 +9,9 @@ use core\CONSOLE;
  * Several operation with DNSSec information from ISPConfig DNS Zones
  * @package isp
  */
-class ISPDnssec extends ISPConnector
+class ISPDnssec
 {
+    use ISPConnector;
     /**
      * @var ISPDnssec Singleton instance
      */

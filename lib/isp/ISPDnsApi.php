@@ -10,8 +10,9 @@ namespace isp;
  *
  * @package isp
  */
-class ISPDnsApi extends ISPConnector
+class ISPDnsApi
 {
+    use ISPConnector;
     /**
      * @var ISPDnsApi Singleton instance
      */

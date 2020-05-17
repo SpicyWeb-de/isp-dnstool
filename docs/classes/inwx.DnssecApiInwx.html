@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    dnsapi - DNSSec Helper tool for ISPConfig &raquo; \inwx\INWXDNSSecApi
+    <title>    dnsapi - DNSSec Helper tool for ISPConfig &raquo; \inwx\DnssecApiInwx
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -44,8 +44,8 @@
                             <ul class="dropdown-menu">
                                                                     <li><a>Namespaces</a></li>
                                                                         <li><a href="../namespaces/isp.html">isp</a></li>
-                                                                        <li><a href="../namespaces/inwx.html">inwx</a></li>
                                                                         <li><a href="../namespaces/core.html">core</a></li>
+                                                                        <li><a href="../namespaces/inwx.html">inwx</a></li>
                                                                                                                                 </ul>
                         </li>
                         <li class="dropdown" id="charts-menu">
@@ -135,69 +135,69 @@ Disconnects from INWX API at end of execution</span><pre>__destruct</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_cleanCorruptedKeys" title="cleanCorruptedKeys :: Remove all keys from INWX servers that have a corresponding key in ISPConfig, but in any way different data">
-            <span class="description">Remove all keys from INWX servers that have a corresponding key in ISPConfig, but in any way different data</span><pre>cleanCorruptedKeys</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_cleanCorruptedKeys" title="cleanCorruptedKeys :: Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data">
+            <span class="description">Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data</span><pre>cleanCorruptedKeys</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_cleanOrphanedKeys" title="cleanOrphanedKeys :: Remove all keys from INWX servers, that are not known by ISPConfig">
-            <span class="description">Remove all keys from INWX servers, that are not known by ISPConfig</span><pre>cleanOrphanedKeys</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_cleanOrphanedKeys" title="cleanOrphanedKeys :: Remove all keys from Remote servers, that are not known by ISPConfig">
+            <span class="description">Remove all keys from Remote servers, that are not known by ISPConfig</span><pre>cleanOrphanedKeys</pre>
         </a>
     </li>
 
-                                                                                                                                                                <li class="method public">
+                                                                                                                                                                <li class="method public inherited">
         <a href="#method_instance" title="instance :: Create and return the singleton instance of this class">
             <span class="description">Create and return the singleton instance of this class</span><pre>instance</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
+                                                                                                        <li class="method public inherited">
         <a href="#method_loadISPKeys" title="loadISPKeys :: Load ISPConfig Keys from exported Keyfile">
             <span class="description">Load ISPConfig Keys from exported Keyfile</span><pre>loadISPKeys</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_loadPublishedKeys" title="loadPublishedKeys :: Load INWX Keys from API and feed to DNSSecZone">
-            <span class="description">Load INWX Keys from API and feed to DNSSecZone</span><pre>loadPublishedKeys</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_loadRemoteKeys" title="loadRemoteKeys :: Load Keys from Remote API and feed to DNSSecZone Class">
+            <span class="description">Load Keys from Remote API and feed to DNSSecZone Class</span><pre>loadRemoteKeys</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_matchListedDomains" title="matchListedDomains :: Execute Matching of keys from ISPConfig and INWX">
-            <span class="description">Execute Matching of keys from ISPConfig and INWX</span><pre>matchListedDomains</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_matchListedDomains" title="matchListedDomains :: Execute Matching of keys from ISPConfig and Remote">
+            <span class="description">Execute Matching of keys from ISPConfig and Remote</span><pre>matchListedDomains</pre>
         </a>
     </li>
 
-                                                                                                                                                                <li class="method public">
-        <a href="#method_printDomainList" title="printDomainList :: Print a list of domains signed by ISPConfig and published in INWX">
-            <span class="description">Print a list of domains signed by ISPConfig and published in INWX</span><pre>printDomainList</pre>
+                                                                                                                                                                <li class="method public inherited">
+        <a href="#method_printDomainList" title="printDomainList :: Print a list of domains signed by ISPConfig and published in Remote">
+            <span class="description">Print a list of domains signed by ISPConfig and published in Remote</span><pre>printDomainList</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_printReport" title="printReport :: Generate a detailed report of all zones and their status in ISPConfig and INWX">
-            <span class="description">Generate a detailed report of all zones and their status in ISPConfig and INWX</span><pre>printReport</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_printReport" title="printReport :: Generate a detailed report of all zones and their status in ISPConfig and Remote">
+            <span class="description">Generate a detailed report of all zones and their status in ISPConfig and Remote</span><pre>printReport</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_printSummary" title="printSummary :: Generate a summary of domains in ISPConfig and INWX">
-            <span class="description">Generate a summary of domains in ISPConfig and INWX</span><pre>printSummary</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_printSummary" title="printSummary :: Generate a summary of domains in ISPConfig and Remote">
+            <span class="description">Generate a summary of domains in ISPConfig and Remote</span><pre>printSummary</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_printZoneKeys" title="printZoneKeys :: Print the keys on ISPConfig and INWX for specified zone">
-            <span class="description">Print the keys on ISPConfig and INWX for specified zone</span><pre>printZoneKeys</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_printZoneKeys" title="printZoneKeys :: Print the keys on ISPConfig and Remote for specified zone">
+            <span class="description">Print the keys on ISPConfig and Remote for specified zone</span><pre>printZoneKeys</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public">
-        <a href="#method_publishAllUnpublishedKeys" title="publishAllUnpublishedKeys :: Publish all unpublished Keys from ISPConfig to INWX">
-            <span class="description">Publish all unpublished Keys from ISPConfig to INWX</span><pre>publishAllUnpublishedKeys</pre>
+                                                                                                        <li class="method public inherited">
+        <a href="#method_publishUnpublishedKeys" title="publishUnpublishedKeys :: Publish all unpublished Keys from ISPConfig to remote">
+            <span class="description">Publish all unpublished Keys from ISPConfig to remote</span><pre>publishUnpublishedKeys</pre>
         </a>
     </li>
 
@@ -233,11 +233,11 @@ Disconnects from INWX API at end of execution</span><pre>__destruct</pre>
 
         <div class="span8">
             <div class="element class">
-                <h1>INWXDNSSecApi</h1>
+                <h1>DnssecApiInwx</h1>
                 <small style="display: block; text-align: right">
-                                            Extends <a href="../classes/inwx.INWXConnector.html">\inwx\INWXConnector</a>
+                                            Extends <a href="../classes/core.DnssecApi.html">\core\DnssecApi</a>
                                                         </small>
-                <p class="short_description">Class INWXDNSSecApi
+                <p class="short_description">Class DnssecApiInwx
 Autoconnects to INWX Api and provides several operations to work with the API Data</p>
                 <div class="details">
                     <div class="long_description">
@@ -335,11 +335,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_cleanCorruptedKeys"></a>
-                        <div class="element clickable method public  method_cleanCorruptedKeys" data-toggle="collapse" data-target=".method_cleanCorruptedKeys .collapse">
-                            <h2>Remove all keys from INWX servers that have a corresponding key in ISPConfig, but in any way different data</h2>
+                        <div class="element clickable method public  method_cleanCorruptedKeys inherited" data-toggle="collapse" data-target=".method_cleanCorruptedKeys .collapse">
+                            <h2>Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data</h2>
                             <pre>cleanCorruptedKeys(string|false $origin = false) : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
 
                             
                             <div class="row collapse">
@@ -362,11 +362,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_cleanOrphanedKeys"></a>
-                        <div class="element clickable method public  method_cleanOrphanedKeys" data-toggle="collapse" data-target=".method_cleanOrphanedKeys .collapse">
-                            <h2>Remove all keys from INWX servers, that are not known by ISPConfig</h2>
+                        <div class="element clickable method public  method_cleanOrphanedKeys inherited" data-toggle="collapse" data-target=".method_cleanOrphanedKeys .collapse">
+                            <h2>Remove all keys from Remote servers, that are not known by ISPConfig</h2>
                             <pre>cleanOrphanedKeys(string|false $origin = false) : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
 
                             
                             <div class="row collapse">
@@ -432,11 +432,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_instance"></a>
-                        <div class="element clickable method public  method_instance" data-toggle="collapse" data-target=".method_instance .collapse">
+                        <div class="element clickable method public  method_instance inherited" data-toggle="collapse" data-target=".method_instance .collapse">
                             <h2>Create and return the singleton instance of this class</h2>
-                            <pre>instance() : \inwx\INWXDNSSecApi</pre>
+                            <pre>instance() : \core\DnssecApi</pre>
                             <div class="labels">
-                                                                <span class="label">static</span>                                                                                                                            </div>
+                                <span class="label">inherited</span>                                <span class="label">static</span>                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -455,17 +455,17 @@ Disconnects from INWX API at end of execution</h2>
 
                                     
                                                                             <h3>Response</h3>
-                                        <code><a href="../classes/inwx.INWXDNSSecApi.html">\inwx\INWXDNSSecApi</a></code><p><p>Instance of singleton</p></p>
+                                        <code><a href="../classes/core.DnssecApi.html">\core\DnssecApi</a></code><p><p>Instance of singleton</p></p>
                                                                     </div>
                             </div>
 
                         </div>
                                             <a id="method_loadISPKeys"></a>
-                        <div class="element clickable method public  method_loadISPKeys" data-toggle="collapse" data-target=".method_loadISPKeys .collapse">
+                        <div class="element clickable method public  method_loadISPKeys inherited" data-toggle="collapse" data-target=".method_loadISPKeys .collapse">
                             <h2>Load ISPConfig Keys from exported Keyfile</h2>
                             <pre>loadISPKeys() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -498,12 +498,12 @@ Disconnects from INWX API at end of execution</h2>
                             </div>
 
                         </div>
-                                            <a id="method_loadPublishedKeys"></a>
-                        <div class="element clickable method public  method_loadPublishedKeys" data-toggle="collapse" data-target=".method_loadPublishedKeys .collapse">
-                            <h2>Load INWX Keys from API and feed to DNSSecZone</h2>
-                            <pre>loadPublishedKeys() : $this</pre>
+                                            <a id="method_loadRemoteKeys"></a>
+                        <div class="element clickable method public  method_loadRemoteKeys inherited" data-toggle="collapse" data-target=".method_loadRemoteKeys .collapse">
+                            <h2>Load Keys from Remote API and feed to DNSSecZone Class</h2>
+                            <pre>loadRemoteKeys() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
 
                             
                             <div class="row collapse">
@@ -528,11 +528,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_matchListedDomains"></a>
-                        <div class="element clickable method public  method_matchListedDomains" data-toggle="collapse" data-target=".method_matchListedDomains .collapse">
-                            <h2>Execute Matching of keys from ISPConfig and INWX</h2>
+                        <div class="element clickable method public  method_matchListedDomains inherited" data-toggle="collapse" data-target=".method_matchListedDomains .collapse">
+                            <h2>Execute Matching of keys from ISPConfig and Remote</h2>
                             <pre>matchListedDomains() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -592,11 +592,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_printDomainList"></a>
-                        <div class="element clickable method public  method_printDomainList" data-toggle="collapse" data-target=".method_printDomainList .collapse">
-                            <h2>Print a list of domains signed by ISPConfig and published in INWX</h2>
+                        <div class="element clickable method public  method_printDomainList inherited" data-toggle="collapse" data-target=".method_printDomainList .collapse">
+                            <h2>Print a list of domains signed by ISPConfig and published in Remote</h2>
                             <pre>printDomainList() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -621,11 +621,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_printReport"></a>
-                        <div class="element clickable method public  method_printReport" data-toggle="collapse" data-target=".method_printReport .collapse">
-                            <h2>Generate a detailed report of all zones and their status in ISPConfig and INWX</h2>
+                        <div class="element clickable method public  method_printReport inherited" data-toggle="collapse" data-target=".method_printReport .collapse">
+                            <h2>Generate a detailed report of all zones and their status in ISPConfig and Remote</h2>
                             <pre>printReport() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -650,11 +650,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_printSummary"></a>
-                        <div class="element clickable method public  method_printSummary" data-toggle="collapse" data-target=".method_printSummary .collapse">
-                            <h2>Generate a summary of domains in ISPConfig and INWX</h2>
+                        <div class="element clickable method public  method_printSummary inherited" data-toggle="collapse" data-target=".method_printSummary .collapse">
+                            <h2>Generate a summary of domains in ISPConfig and Remote</h2>
                             <pre>printSummary() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -679,11 +679,11 @@ Disconnects from INWX API at end of execution</h2>
 
                         </div>
                                             <a id="method_printZoneKeys"></a>
-                        <div class="element clickable method public  method_printZoneKeys" data-toggle="collapse" data-target=".method_printZoneKeys .collapse">
-                            <h2>Print the keys on ISPConfig and INWX for specified zone</h2>
-                            <pre>printZoneKeys( $origin) </pre>
+                        <div class="element clickable method public  method_printZoneKeys inherited" data-toggle="collapse" data-target=".method_printZoneKeys .collapse">
+                            <h2>Print the keys on ISPConfig and Remote for specified zone</h2>
+                            <pre>printZoneKeys( $origin) : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                                                                            </div>
 
                             
                             <div class="row collapse">
@@ -691,13 +691,6 @@ Disconnects from INWX API at end of execution</h2>
                                     <div class="long_description"></div>
 
                                     <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
                                                                                                                     </table>
 
                                                                             <h3>Arguments</h3>
@@ -706,16 +699,18 @@ Disconnects from INWX API at end of execution</h2>
                                                 <code></code><p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
                                                                     </div>
                             </div>
 
                         </div>
-                                            <a id="method_publishAllUnpublishedKeys"></a>
-                        <div class="element clickable method public  method_publishAllUnpublishedKeys" data-toggle="collapse" data-target=".method_publishAllUnpublishedKeys .collapse">
-                            <h2>Publish all unpublished Keys from ISPConfig to INWX</h2>
-                            <pre>publishAllUnpublishedKeys() : $this</pre>
+                                            <a id="method_publishUnpublishedKeys"></a>
+                        <div class="element clickable method public  method_publishUnpublishedKeys inherited" data-toggle="collapse" data-target=".method_publishUnpublishedKeys .collapse">
+                            <h2>Publish all unpublished Keys from ISPConfig to remote</h2>
+                            <pre>publishUnpublishedKeys() : $this</pre>
                             <div class="labels">
-                                                                                                                                                                                            </div>
+                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
 
                             
                             <div class="row collapse">
@@ -742,32 +737,6 @@ Disconnects from INWX API at end of execution</h2>
                     
                     
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
-                                                    <a id="property__instance"> </a>
-                            <div class="element clickable property  private property__instance" data-toggle="collapse" data-target=".property__instance .collapse">
-                                <h2>Singleton instance of this class</h2>
-                                <pre>_instance : \inwx\INWXDNSSecApi</pre>
-                                <div class="labels">
-                                                                        <span class="label">static</span>                                </div>
-                                <div class="row collapse">
-                                    <div class="detail-description">
-                                        <div class="long_description"></div>
-
-                                        <table class="table">
-                                                                                            <tr>
-                                                    <th>
-                                                        var
-                                                    </th>
-                                                    <td>
-                                                                                                                    <p>Instance of this class for singleton</p>
-                                                                                                            </td>
-                                                </tr>
-                                                                                    </table>
-
-                                                                                    <h3>Type(s)</h3>
-                                            <code><a href="../classes/inwx.INWXDNSSecApi.html">\inwx\INWXDNSSecApi</a></code>
-                                                                            </div>
-                                </div>
-                            </div>
                                                     <a id="property_api"> </a>
                             <div class="element clickable property  protected property_api inherited" data-toggle="collapse" data-target=".property_api .collapse">
                                 <h2>Instance of the official Api Class provided by INWX</h2>
@@ -794,16 +763,42 @@ Disconnects from INWX API at end of execution</h2>
                                                                             </div>
                                 </div>
                             </div>
+                                                    <a id="property__instance"> </a>
+                            <div class="element clickable property  private property__instance inherited" data-toggle="collapse" data-target=".property__instance .collapse">
+                                <h2>Singleton instance of this class</h2>
+                                <pre>_instance : \core\DnssecApi</pre>
+                                <div class="labels">
+                                    <span class="label">inherited</span>                                    <span class="label">static</span>                                </div>
+                                <div class="row collapse">
+                                    <div class="detail-description">
+                                        <div class="long_description"></div>
+
+                                        <table class="table">
+                                                                                            <tr>
+                                                    <th>
+                                                        var
+                                                    </th>
+                                                    <td>
+                                                                                                                    <p>Instance of this class for singleton</p>
+                                                                                                            </td>
+                                                </tr>
+                                                                                    </table>
+
+                                                                                    <h3>Type(s)</h3>
+                                            <code><a href="../classes/core.DnssecApi.html">\core\DnssecApi</a></code>
+                                                                            </div>
+                                </div>
+                            </div>
                                                             </div>
             </div>
-            <a id="\inwx\INWXDNSSecApi"></a>
+            <a id="\inwx\DnssecApiInwx"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
     <li><span class="divider">\</span><a href="../namespaces/inwx.html">inwx</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/inwx.INWXDNSSecApi.html">INWXDNSSecApi</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/inwx.DnssecApiInwx.html">DnssecApiInwx</a></li>
             </ul>
         </div>
     </div>
@@ -814,7 +809,7 @@ Disconnects from INWX API at end of execution</h2>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by
             <a href="http://glyphicons.com/">Glyphicons</a>.<br/>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and<br/>
-            generated on Sun, 17 May 2020 21:22:25 +0000.<br/>
+            generated on Sun, 17 May 2020 22:08:20 +0000.<br/>
     </footer>
     </body>
 </html>

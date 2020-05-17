@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>    dnsapi - DNSSec Helper tool for ISPConfig &raquo; \inwx\DnssecRecordInwx
+    <title>    dnsapi - DNSSec Helper tool for ISPConfig &raquo; \core\DnssecApi
 </title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
@@ -121,57 +121,69 @@
         <li class="nav-header">
             <i class="icon-custom icon-method"></i> Methods
             <ul>
-                                                                                                    <li class="method public inherited">
-        <a href="#method___construct" title="__construct :: Constructor receiving the key data from the remote api and storing them in a member attribute">
-            <span class="description">Constructor receiving the key data from the remote api and storing them in a member attribute</span><pre>__construct</pre>
+                                                                                                    <li class="method public">
+        <a href="#method_cleanCorruptedKeys" title="cleanCorruptedKeys :: Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data">
+            <span class="description">Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data</span><pre>cleanCorruptedKeys</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method___toString" title="__toString :: Get the origin name of the corresponding DNS Zone">
-            <span class="description">Get the origin name of the corresponding DNS Zone</span><pre>__toString</pre>
+        <a href="#method_cleanOrphanedKeys" title="cleanOrphanedKeys :: Remove all keys from Remote servers, that are not known by ISPConfig">
+            <span class="description">Remove all keys from Remote servers, that are not known by ISPConfig</span><pre>cleanOrphanedKeys</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getFqdn" title="getFqdn :: Get the full qualified domain name of the corresponding ISPConfig DNS zone">
-            <span class="description">Get the full qualified domain name of the corresponding ISPConfig DNS zone</span><pre>getFqdn</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public inherited">
-        <a href="#method_getKeyID" title="getKeyID :: Get an identifier value for this key to use in API requests for manipulating this key">
-            <span class="description">Get an identifier value for this key to use in API requests for manipulating this key</span><pre>getKeyID</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public inherited">
-        <a href="#method_getKeyStatus" title="getKeyStatus :: Get the status from this key compared it to ISPConfig key data">
-            <span class="description">Get the status from this key compared it to ISPConfig key data</span><pre>getKeyStatus</pre>
+        <a href="#method_instance" title="instance :: Create and return the singleton instance of this class">
+            <span class="description">Create and return the singleton instance of this class</span><pre>instance</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getPublicKey" title="getPublicKey :: Get the DNSSec public key exported from ISPConfig">
-            <span class="description">Get the DNSSec public key exported from ISPConfig</span><pre>getPublicKey</pre>
-        </a>
-    </li>
-
-                                                                                                        <li class="method public inherited">
-        <a href="#method_getPublishStatus" title="getPublishStatus :: Get the publication status of this key on the remote system for reports.">
-            <span class="description">Get the publication status of this key on the remote system for reports.</span><pre>getPublishStatus</pre>
+        <a href="#method_loadISPKeys" title="loadISPKeys :: Load ISPConfig Keys from exported Keyfile">
+            <span class="description">Load ISPConfig Keys from exported Keyfile</span><pre>loadISPKeys</pre>
         </a>
     </li>
 
                                                                                                         <li class="method public">
-        <a href="#method_getStringRepresentation" title="getStringRepresentation :: Generate a string representation containing all relevant key information for key compairson and detail printout">
-            <span class="description">Generate a string representation containing all relevant key information for key compairson and detail printout</span><pre>getStringRepresentation</pre>
+        <a href="#method_loadRemoteKeys" title="loadRemoteKeys :: Load Keys from Remote API and feed to DNSSecZone Class">
+            <span class="description">Load Keys from Remote API and feed to DNSSecZone Class</span><pre>loadRemoteKeys</pre>
         </a>
     </li>
 
-                                                                                                        <li class="method public inherited">
-        <a href="#method_match" title="match :: Match this key with the Key provided by ISPConfig for this zone and save the comparison status">
-            <span class="description">Match this key with the Key provided by ISPConfig for this zone and save the comparison status</span><pre>match</pre>
+                                                                                                        <li class="method public">
+        <a href="#method_matchListedDomains" title="matchListedDomains :: Execute Matching of keys from ISPConfig and Remote">
+            <span class="description">Execute Matching of keys from ISPConfig and Remote</span><pre>matchListedDomains</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_printDomainList" title="printDomainList :: Print a list of domains signed by ISPConfig and published in Remote">
+            <span class="description">Print a list of domains signed by ISPConfig and published in Remote</span><pre>printDomainList</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_printReport" title="printReport :: Generate a detailed report of all zones and their status in ISPConfig and Remote">
+            <span class="description">Generate a detailed report of all zones and their status in ISPConfig and Remote</span><pre>printReport</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_printSummary" title="printSummary :: Generate a summary of domains in ISPConfig and Remote">
+            <span class="description">Generate a summary of domains in ISPConfig and Remote</span><pre>printSummary</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_printZoneKeys" title="printZoneKeys :: Print the keys on ISPConfig and Remote for specified zone">
+            <span class="description">Print the keys on ISPConfig and Remote for specified zone</span><pre>printZoneKeys</pre>
+        </a>
+    </li>
+
+                                                                                                        <li class="method public">
+        <a href="#method_publishUnpublishedKeys" title="publishUnpublishedKeys :: Publish all unpublished Keys from ISPConfig to remote">
+            <span class="description">Publish all unpublished Keys from ISPConfig to remote</span><pre>publishUnpublishedKeys</pre>
         </a>
     </li>
 
@@ -179,11 +191,11 @@
         </li>
         <li class="nav-header protected">» Protected
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header private">» Private
             <ul>
-                                                                                                                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
         </li>
         <li class="nav-header">
             <i class="icon-custom icon-constant"></i> Constants
@@ -197,12 +209,11 @@
 
         <div class="span8">
             <div class="element class">
-                <h1>DnssecRecordInwx</h1>
+                <h1>DnssecApi</h1>
                 <small style="display: block; text-align: right">
-                                            Extends <a href="../classes/core.DnssecRecordRemote.html">\core\DnssecRecordRemote</a>
                                                         </small>
-                <p class="short_description">Class DNSKeyINWX
-Representation of a single key entry as reported from INWX remote api</p>
+                <p class="short_description">Class DnssecApi
+Abstract class to be extended by all provider specific API classes as Entry Points from the CLI logic</p>
                 <div class="details">
                     <div class="long_description">
                         
@@ -214,253 +225,18 @@ Representation of a single key entry as reported from INWX remote api</p>
                                                                             </th>
                                     <td>
                                                                                     
-                                                                                <p>inwx</p>
+                                                                                <p>core</p>
                                     </td>
                                 </tr>
-                                                                                                                                                                                </table>
+                                                                                                                                                                                                                                                                                                                                            </table>
 
                     <h3><i class="icon-custom icon-method"></i> Methods</h3>
-                                                                <a id="method___construct"></a>
-                        <div class="element clickable method public  method___construct inherited" data-toggle="collapse" data-target=".method___construct .collapse">
-                            <h2>Constructor receiving the key data from the remote api and storing them in a member attribute</h2>
-                            <pre>__construct( $keydata) </pre>
+                                                                <a id="method_cleanCorruptedKeys"></a>
+                        <div class="element clickable method public  method_cleanCorruptedKeys" data-toggle="collapse" data-target=".method_cleanCorruptedKeys .collapse">
+                            <h2>Remove all keys from Remote servers that have a corresponding key in ISPConfig, but in any way different data</h2>
+                            <pre>cleanCorruptedKeys(string|false $origin = false) : $this</pre>
                             <div class="labels">
-                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                                                            <h3>Arguments</h3>
-                                                                                    <div class="subelement argument">
-                                                <h4>$keydata</h4>
-                                                <code></code><p><p>mixed</p></p>
-                                            </div>
-                                                                            
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method___toString"></a>
-                        <div class="element clickable method public  method___toString" data-toggle="collapse" data-target=".method___toString .collapse">
-                            <h2>Get the origin name of the corresponding DNS Zone</h2>
-                            <pre>__toString() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>The origin of this key</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getFqdn"></a>
-                        <div class="element clickable method public  method_getFqdn" data-toggle="collapse" data-target=".method_getFqdn .collapse">
-                            <h2>Get the full qualified domain name of the corresponding ISPConfig DNS zone</h2>
-                            <pre>getFqdn() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>The FQDN of the signed zone (without trailing .)</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getKeyID"></a>
-                        <div class="element clickable method public  method_getKeyID inherited" data-toggle="collapse" data-target=".method_getKeyID .collapse">
-                            <h2>Get an identifier value for this key to use in API requests for manipulating this key</h2>
-                            <pre>getKeyID() : mixed</pre>
-                            <div class="labels">
-                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>mixed</code><p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getKeyStatus"></a>
-                        <div class="element clickable method public  method_getKeyStatus inherited" data-toggle="collapse" data-target=".method_getKeyStatus .collapse">
-                            <h2>Get the status from this key compared it to ISPConfig key data</h2>
-                            <pre>getKeyStatus() : integer</pre>
-                            <div class="labels">
-                                <span class="label">inherited</span>                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>integer</code><p><p>Comparison status of this key</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getPublicKey"></a>
-                        <div class="element clickable method public  method_getPublicKey" data-toggle="collapse" data-target=".method_getPublicKey .collapse">
-                            <h2>Get the DNSSec public key exported from ISPConfig</h2>
-                            <pre>getPublicKey() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>The cryptographic public key</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getPublishStatus"></a>
-                        <div class="element clickable method public  method_getPublishStatus inherited" data-toggle="collapse" data-target=".method_getPublishStatus .collapse">
-                            <h2>Get the publication status of this key on the remote system for reports.</h2>
-                            <pre>getPublishStatus() : string</pre>
-                            <div class="labels">
-                                <span class="label">inherited</span>                                                                                                <span class="label">abstract</span>                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"><p>e.g. Created, OK, Live, Pending, ...</p></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_getStringRepresentation"></a>
-                        <div class="element clickable method public  method_getStringRepresentation" data-toggle="collapse" data-target=".method_getStringRepresentation .collapse">
-                            <h2>Generate a string representation containing all relevant key information for key compairson and detail printout</h2>
-                            <pre>getStringRepresentation() : string</pre>
-                            <div class="labels">
-                                                                                                                                                                                            </div>
-
-                            
-                            <div class="row collapse">
-                                <div class="detail-description">
-                                    <div class="long_description"></div>
-
-                                    <table class="table">
-                                                                                    <tr>
-                                                <th>
-                                                    
-                                                </th>
-                                                <td>
-                                                                                                    </td>
-                                            </tr>
-                                                                                                                    </table>
-
-                                    
-                                                                            <h3>Response</h3>
-                                        <code>string</code><p><p>Returns the key data in a default format for compairson</p></p>
-                                                                    </div>
-                            </div>
-
-                        </div>
-                                            <a id="method_match"></a>
-                        <div class="element clickable method public  method_match inherited" data-toggle="collapse" data-target=".method_match .collapse">
-                            <h2>Match this key with the Key provided by ISPConfig for this zone and save the comparison status</h2>
-                            <pre>match(\isp\DnssecRecordISP $ispKey) : $this</pre>
-                            <div class="labels">
-                                <span class="label">inherited</span>                                                                                                                                                            </div>
+                                                                                                                                <span class="label">abstract</span>                                                            </div>
 
                             
                             <div class="row collapse">
@@ -472,10 +248,305 @@ Representation of a single key entry as reported from INWX remote api</p>
 
                                                                             <h3>Arguments</h3>
                                                                                     <div class="subelement argument">
-                                                <h4>$ispKey</h4>
-                                                <code><a href="../classes/isp.DnssecRecordISP.html">\isp\DnssecRecordISP</a></code><p><p>Exported key from ISPConfig for this zone</p></p>
+                                                <h4>$origin</h4>
+                                                <code>string|false</code><p><p>Optional: Origin name to delete instead of all</p></p>
                                             </div>
                                                                             
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_cleanOrphanedKeys"></a>
+                        <div class="element clickable method public  method_cleanOrphanedKeys" data-toggle="collapse" data-target=".method_cleanOrphanedKeys .collapse">
+                            <h2>Remove all keys from Remote servers, that are not known by ISPConfig</h2>
+                            <pre>cleanOrphanedKeys(string|false $origin = false) : $this</pre>
+                            <div class="labels">
+                                                                                                                                <span class="label">abstract</span>                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$origin</h4>
+                                                <code>string|false</code><p><p>Optional: Origin name to delete instead of all</p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_instance"></a>
+                        <div class="element clickable method public  method_instance" data-toggle="collapse" data-target=".method_instance .collapse">
+                            <h2>Create and return the singleton instance of this class</h2>
+                            <pre>instance() : \core\DnssecApi</pre>
+                            <div class="labels">
+                                                                <span class="label">static</span>                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code><a href="../classes/core.DnssecApi.html">\core\DnssecApi</a></code><p><p>Instance of singleton</p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_loadISPKeys"></a>
+                        <div class="element clickable method public  method_loadISPKeys" data-toggle="collapse" data-target=".method_loadISPKeys .collapse">
+                            <h2>Load ISPConfig Keys from exported Keyfile</h2>
+                            <pre>loadISPKeys() : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                            <tr>
+                                                <th>Throws</th>
+                                                <td>
+                                                    <dl>
+                                                                                                            <dt>\ErrorException</dt>
+                                                        <dd></dd>
+                                                                                                                                                            </dl>
+                                                </td>
+                                            </tr>
+                                                                            </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_loadRemoteKeys"></a>
+                        <div class="element clickable method public  method_loadRemoteKeys" data-toggle="collapse" data-target=".method_loadRemoteKeys .collapse">
+                            <h2>Load Keys from Remote API and feed to DNSSecZone Class</h2>
+                            <pre>loadRemoteKeys() : $this</pre>
+                            <div class="labels">
+                                                                                                                                <span class="label">abstract</span>                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_matchListedDomains"></a>
+                        <div class="element clickable method public  method_matchListedDomains" data-toggle="collapse" data-target=".method_matchListedDomains .collapse">
+                            <h2>Execute Matching of keys from ISPConfig and Remote</h2>
+                            <pre>matchListedDomains() : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_printDomainList"></a>
+                        <div class="element clickable method public  method_printDomainList" data-toggle="collapse" data-target=".method_printDomainList .collapse">
+                            <h2>Print a list of domains signed by ISPConfig and published in Remote</h2>
+                            <pre>printDomainList() : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_printReport"></a>
+                        <div class="element clickable method public  method_printReport" data-toggle="collapse" data-target=".method_printReport .collapse">
+                            <h2>Generate a detailed report of all zones and their status in ISPConfig and Remote</h2>
+                            <pre>printReport() : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_printSummary"></a>
+                        <div class="element clickable method public  method_printSummary" data-toggle="collapse" data-target=".method_printSummary .collapse">
+                            <h2>Generate a summary of domains in ISPConfig and Remote</h2>
+                            <pre>printSummary() : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_printZoneKeys"></a>
+                        <div class="element clickable method public  method_printZoneKeys" data-toggle="collapse" data-target=".method_printZoneKeys .collapse">
+                            <h2>Print the keys on ISPConfig and Remote for specified zone</h2>
+                            <pre>printZoneKeys( $origin) : $this</pre>
+                            <div class="labels">
+                                                                                                                                                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                                                    </table>
+
+                                                                            <h3>Arguments</h3>
+                                                                                    <div class="subelement argument">
+                                                <h4>$origin</h4>
+                                                <code></code><p></p>
+                                            </div>
+                                                                            
+                                                                            <h3>Response</h3>
+                                        <code>$this</code><p></p>
+                                                                    </div>
+                            </div>
+
+                        </div>
+                                            <a id="method_publishUnpublishedKeys"></a>
+                        <div class="element clickable method public  method_publishUnpublishedKeys" data-toggle="collapse" data-target=".method_publishUnpublishedKeys .collapse">
+                            <h2>Publish all unpublished Keys from ISPConfig to remote</h2>
+                            <pre>publishUnpublishedKeys() : $this</pre>
+                            <div class="labels">
+                                                                                                                                <span class="label">abstract</span>                                                            </div>
+
+                            
+                            <div class="row collapse">
+                                <div class="detail-description">
+                                    <div class="long_description"></div>
+
+                                    <table class="table">
+                                                                                    <tr>
+                                                <th>
+                                                    
+                                                </th>
+                                                <td>
+                                                                                                    </td>
+                                            </tr>
+                                                                                                                    </table>
+
+                                    
                                                                             <h3>Response</h3>
                                         <code>$this</code><p></p>
                                                                     </div>
@@ -485,12 +556,12 @@ Representation of a single key entry as reported from INWX remote api</p>
                     
                     
                                                                 <h3><i class="icon-custom icon-property"></i> Properties</h3>
-                                                    <a id="property_keydata"> </a>
-                            <div class="element clickable property  private property_keydata" data-toggle="collapse" data-target=".property_keydata .collapse">
-                                <h2>Data of this key as reported from INWX</h2>
-                                <pre>keydata : array</pre>
+                                                    <a id="property__instance"> </a>
+                            <div class="element clickable property  private property__instance" data-toggle="collapse" data-target=".property__instance .collapse">
+                                <h2>Singleton instance of this class</h2>
+                                <pre>_instance : \core\DnssecApi</pre>
                                 <div class="labels">
-                                                                                                        </div>
+                                                                        <span class="label">static</span>                                </div>
                                 <div class="row collapse">
                                     <div class="detail-description">
                                         <div class="long_description"></div>
@@ -501,66 +572,26 @@ Representation of a single key entry as reported from INWX remote api</p>
                                                         var
                                                     </th>
                                                     <td>
-                                                                                                                    <p>= [
-'ownerName'    =&gt; 'mydomain.tld',           // Origin name of signed dns zone
-'id'           =&gt; '8837',                   // ID of this key in INWX database
-'domainId'     =&gt; '9932',                   // ID of corresponding domain in INWX database
-'keyTag'       =&gt; '7873',                   // Identical to id field of DNSSEC Key from ISPConfig, used in DNS Record
-'flagId'       =&gt; ['256', '257'],           // Type of key. 256 for zone signing and 257 for key signing -&gt; registrar needs 257
-'algorithmId'  =&gt; ['1', '2', '3', '4', '5', '6', '7', '8', '10', '12', '13', '14'],   // Crypo Cipher of the key
-'publicKey'    =&gt; 'AkLudlSDKJsd...',        // The public key to publish as DNSKEY
-'digestTypeId' =&gt; ['1', '2', '3', '4'],     // Digest Hash Type
-'digest'       =&gt; 'E883B2...',              // Digest Hash
-'created'      =&gt; '2020-05-14 16:19:17',   // Creation Timestamp in ISO 8601 Format
-'status'       =&gt; ['CREATE', 'DELAYED', 'OK', 'DELETE'],    // Key status on INWX key servers
-'active'       =&gt; '1',
-]</p>
+                                                                                                                    <p>Instance of this class for singleton</p>
                                                                                                             </td>
                                                 </tr>
                                                                                     </table>
 
                                                                                     <h3>Type(s)</h3>
-                                            <code>array</code>
-                                                                            </div>
-                                </div>
-                            </div>
-                                                    <a id="property_keystatus"> </a>
-                            <div class="element clickable property  protected property_keystatus inherited" data-toggle="collapse" data-target=".property_keystatus .collapse">
-                                <h2>Status of this key in compairson to ISPConfig information on the corresponding DNS Zone
-See defines.php for used status flags</h2>
-                                <pre>keystatus : integer</pre>
-                                <div class="labels">
-                                    <span class="label">inherited</span>                                                                    </div>
-                                <div class="row collapse">
-                                    <div class="detail-description">
-                                        <div class="long_description"></div>
-
-                                        <table class="table">
-                                                                                            <tr>
-                                                    <th>
-                                                        var
-                                                    </th>
-                                                    <td>
-                                                                                                                    
-                                                                                                            </td>
-                                                </tr>
-                                                                                    </table>
-
-                                                                                    <h3>Type(s)</h3>
-                                            <code>integer</code>
+                                            <code><a href="../classes/core.DnssecApi.html">\core\DnssecApi</a></code>
                                                                             </div>
                                 </div>
                             </div>
                                                             </div>
             </div>
-            <a id="\inwx\DnssecRecordInwx"></a>
+            <a id="\core\DnssecApi"></a>
             <ul class="breadcrumb">
                 <li><a href="../index.html"><i class="icon-custom icon-class"></i></a></li>
                     
     
-    <li><span class="divider">\</span><a href="../namespaces/inwx.html">inwx</a></li>
+    <li><span class="divider">\</span><a href="../namespaces/core.html">core</a></li>
 
-                <li class="active"><span class="divider">\</span><a href="../classes/inwx.DnssecRecordInwx.html">DnssecRecordInwx</a></li>
+                <li class="active"><span class="divider">\</span><a href="../classes/core.DnssecApi.html">DnssecApi</a></li>
             </ul>
         </div>
     </div>
