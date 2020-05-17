@@ -4,11 +4,13 @@
  */
 namespace isp;
 
+use core\DnssecRecord;
+
 /**
  * Represents the key information exported from ISPConfig for matching with remote keys
  * @package isp
  */
-class DNSKeyISP{
+class DnssecRecordISP implements DnssecRecord {
     /**
      * @var array = [
      *      'record'    => 'domain.tld. IN DS 42 7 2 E78C1A...',        // The full DS DNS Record
@@ -49,7 +51,7 @@ class DNSKeyISP{
      * Get a simple string representation of this key for printing in lists
      * @return string The origin of this key
      */
-    public function __toString(){
+    public function __toString(): string{
         return sprintf("%s", $this->dnskey['origin']);
     }
 
@@ -57,7 +59,7 @@ class DNSKeyISP{
      * Generate a string representation containing all relevant key information for key compairson and detail printout
      * @return string Returns the key data in a default format for compairson
      */
-    public function getStringRepresentation(){
+    public function getStringRepresentation(): string{
         return sprintf(DNS_KEY_COMPARE_FORMAT,
             $this->dnskey['origin'],
             $this->dnskey['type'],
@@ -75,7 +77,7 @@ class DNSKeyISP{
      * Get the DNSSec public key exported from ISPConfig
      * @return string The cryptographic public key
      */
-    public function getPublicKey(){
+    public function getPublicKey(): string{
         return $this->dnskey['key'];
     }
 
@@ -83,7 +85,7 @@ class DNSKeyISP{
      * Get the full qualified domain name of the corresponding ISPConfig DNS zone
      * @return string The FQDN of the signed zone (without trailing .)
      */
-    public function getFqdn(){
+    public function getFqdn(): string{
         return substr($this->dnskey['origin'], 0, -1);
     }
 

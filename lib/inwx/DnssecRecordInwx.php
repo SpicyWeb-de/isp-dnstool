@@ -4,14 +4,14 @@
  */
 namespace inwx;
 
-use isp\DNSKeyISP;
+use core\DnssecRecordRemote;
 
 /**
  * Class DNSKeyINWX
  * Representation of a single key entry as reported from INWX remote api
  * @package inwx
  */
-class DNSKeyINWX{
+class DnssecRecordInwx extends DnssecRecordRemote {
     /**
      * Data of this key as reported from INWX
      * @var array = [
@@ -32,13 +32,6 @@ class DNSKeyINWX{
     private $keydata;
 
     /**
-     * Status of this key in compairson to ISPConfig information on the corresponding DNS Zone
-     * See defines.php for used status flags
-     * @var int
-     */
-    private $keystatus = DNS_KEY_PUBLISHED;
-
-    /**
      * DNSKeyINWX constructor. Receives Keydata for one single key listed from INWX
      * @param array $keydata = DNSKeyINWX::$keydata
      */
@@ -48,33 +41,10 @@ class DNSKeyINWX{
     }
 
     /**
-     * Match this key with the Key provided by ISPConfig for this zone and save the comparison status
-     * @param DNSKeyISP $ispKey Exported key from ISPConfig for this zone
-     * @return $this
-     */
-    public function match(DNSKeyISP $ispKey){
-        if($ispKey->getPublicKey() === $this->keydata['publicKey'])
-            // Public key is identical, This key is published AND known by ISP -> no orphan
-            $this->keystatus |= DNS_KEY_KNOWN;
-        if($ispKey->getStringRepresentation() === $this->getStringRepresentation())
-            // All facts of the DNS entries are identical
-            $this->keystatus |= DNS_KEY_DATA_OK;
-        return $this;
-    }
-
-    /**
-     * Get the status from this key compared it to ISPConfig key data
-     * @return int Comparison status of this key
-     */
-    public function getKeyStatus(){
-        return $this->keystatus;
-    }
-
-    /**
      * Get the publication status of this key from INWX
      * @return string Publication status on INWX servers for this key
      */
-    public function getPublishStatus(){
+    public function getPublishStatus(): string{
         return $this->keydata['status'];
     }
 
@@ -82,7 +52,7 @@ class DNSKeyINWX{
      * Get the system ID of this key on INWX servers
      * @return string ID of this key in INWX database
      */
-    public function getKeyID(){
+    public function getKeyID(): string{
         return $this->keydata['id'];
     }
 
@@ -90,7 +60,7 @@ class DNSKeyINWX{
      * Get the origin name of the corresponding DNS Zone
      * @return string The origin of this key
      */
-    public function __toString(){
+    public function __toString(): string{
         return sprintf("%s.", $this->keydata['ownerName']);
     }
 
@@ -98,7 +68,7 @@ class DNSKeyINWX{
      * Generate a string representation containing all relevant key information for key compairson and detail printout
      * @return string Returns the key data in a default format for compairson
      */
-    public function getStringRepresentation() {
+    public function getStringRepresentation(): string {
         return sprintf(DNS_KEY_COMPARE_FORMAT,
             $this->keydata['ownerName'].'.',
             $this->keydata['flagId'],
@@ -110,5 +80,21 @@ class DNSKeyINWX{
             $this->keydata['digestTypeId'],
             $this->keydata['digest']
         );
+    }
+
+    /**
+     * Get the full qualified domain name of the corresponding ISPConfig DNS zone
+     * @return string The FQDN of the signed zone (without trailing .)
+     */
+    public function getFqdn(): string{
+        return $this->keydata['ownerName'];
+    }
+
+    /**
+     * Get the DNSSec public key exported from ISPConfig
+     * @return string The cryptographic public key
+     */
+    public function getPublicKey(): string{
+        return $this->keydata['publicKey'];
     }
 }

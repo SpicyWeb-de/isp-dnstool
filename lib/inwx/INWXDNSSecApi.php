@@ -5,6 +5,7 @@
 namespace inwx;
 
 use core\CONSOLE;
+use core\DNSSEC;
 use core\DNSSecZone;
 
 /**
@@ -38,7 +39,7 @@ class INWXDNSSecApi extends INWXConnector {
         $result = self::$api->call('dnssec', 'listkeys');
         if($result['code'] == 1000){
             foreach($result['resData'] as $inwxKey)
-                DNSSecZone::addINWX($inwxKey);
+                DNSSecZone::addRemoteKey($inwxKey);
         } else {
             throw new \Error($result['msg'], $result['code']);
         }
@@ -56,7 +57,7 @@ class INWXDNSSecApi extends INWXConnector {
         $jsondata = json_decode($jsonstring, true);
         if(!!$jsondata){
             foreach($jsondata as $origin => $keys)
-                DNSSecZone::addISP($origin, $keys);
+                DNSSecZone::addISPConfigKey($origin, $keys);
         } else {
             throw new \ErrorException("Could not parse JSON Data from dnsseckeydata.json");
         }
@@ -116,7 +117,7 @@ class INWXDNSSecApi extends INWXConnector {
         printHeader("PUBLISHING ALL UNPUBLISHED KEYS");
         $keys = DNSSecZone::getZonesWithUnpublishedKeys();
         foreach($keys as $key){
-            $ispKey = $key->getISPKey();
+            $ispKey = $key->getISPConfigKey();
             $params = [
                 'domainName' => $ispKey->getFqdn(),
                 'dnskey' => $ispKey->getDNSKEYRecord(),
@@ -136,7 +137,7 @@ class INWXDNSSecApi extends INWXConnector {
      */
     public function cleanOrphanedKeys($origin = false){
         printHeader("REMOVING ALL ORPHANED KEYS");
-        $keys = DNSSecZone::getINWXAllOrphanedKeys($origin);
+        $keys = DNSSecZone::getOrphanedKeys($origin);
         foreach($keys as $key){
             $params = [
                 'key' => $key->getKeyID()
@@ -154,7 +155,7 @@ class INWXDNSSecApi extends INWXConnector {
      */
     public function cleanCorruptedKeys($origin = false){
         printHeader("REMOVING ALL ENTRIES WITH CORRUPTED KEY DATA");
-        $keys = DNSSecZone::getINWXAllCorruptedKeys($origin);
+        $keys = DNSSecZone::getCorruptedKeys($origin);
         foreach($keys as $key){
             $params = [
                 'key' => $key->getKeyID()
