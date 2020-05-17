@@ -1,13 +1,18 @@
 <?php
-
-
+/**
+ * INWX Connector class
+ */
 namespace inwx;
-
-
 use core\CONSOLE;
 
+/**
+ * Abstract base class for INWX Api classes that connects on construct,
+ * sets some session options based on ENV variables and clean disconnects on destruct.
+ * @package inwx
+ */
 abstract class INWXConnector{
     /**
+     * Instance of the official Api Class provided by INWX
      * @var \INWX\Domrobot Instance of INWX Api Class
      */
     protected static $api = null;

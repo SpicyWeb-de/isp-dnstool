@@ -1,8 +1,14 @@
 <?php
+/**
+ * ISPDnssec Class
+ */
 namespace isp;
-
 use core\CONSOLE;
 
+/**
+ * Several operation with DNSSec information from ISPConfig DNS Zones
+ * @package isp
+ */
 class ISPDnssec extends ISPConnector
 {
     /**
@@ -20,6 +26,7 @@ class ISPDnssec extends ISPConnector
     private $cachedZoneData;
 
     /**
+     * Get singleton instance for this class
      * @return ISPDnssec Singleton instance
      */
     public static function instance()

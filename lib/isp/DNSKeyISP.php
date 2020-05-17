@@ -1,6 +1,13 @@
 <?php
+/**
+ * Home of the DNSKeyISP class
+ */
 namespace isp;
 
+/**
+ * Represents the key information exported from ISPConfig for matching with remote keys
+ * @package isp
+ */
 class DNSKeyISP{
     /**
      * @var array = [
@@ -39,6 +46,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Get a simple string representation of this key for printing in lists
      * @return string The origin of this key
      */
     public function __toString(){
@@ -46,6 +54,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Generate a string representation containing all relevant key information for key compairson and detail printout
      * @return string Returns the key data in a default format for compairson
      */
     public function getStringRepresentation(){
@@ -63,6 +72,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Get the DNSSec public key exported from ISPConfig
      * @return string The cryptographic public key
      */
     public function getPublicKey(){
@@ -70,6 +80,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Get the full qualified domain name of the corresponding ISPConfig DNS zone
      * @return string The FQDN of the signed zone (without trailing .)
      */
     public function getFqdn(){
@@ -77,6 +88,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Generate the DNSKEY Record string for this key
      * @return string DNSKEY record in standardized DNS Record Format
      */
     public function getDNSKEYRecord(){
@@ -90,6 +102,7 @@ class DNSKeyISP{
     }
 
     /**
+     * Generate the DS Record string for this key
      * @return string DS record in standardized DNS Record Format
      */
     public function getDSRecord(){

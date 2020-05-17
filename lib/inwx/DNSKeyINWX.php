@@ -1,10 +1,19 @@
 <?php
+/**
+ * DNSKeyINWX class
+ */
 namespace inwx;
 
 use isp\DNSKeyISP;
 
+/**
+ * Class DNSKeyINWX
+ * Representation of a single key entry as reported from INWX remote api
+ * @package inwx
+ */
 class DNSKeyINWX{
     /**
+     * Data of this key as reported from INWX
      * @var array = [
      *      'ownerName'    => 'mydomain.tld',           // Origin name of signed dns zone
      *      'id'           => '8837',                   // ID of this key in INWX database
@@ -22,6 +31,11 @@ class DNSKeyINWX{
      */
     private $keydata;
 
+    /**
+     * Status of this key in compairson to ISPConfig information on the corresponding DNS Zone
+     * See defines.php for used status flags
+     * @var int
+     */
     private $keystatus = DNS_KEY_PUBLISHED;
 
     /**
@@ -49,6 +63,7 @@ class DNSKeyINWX{
     }
 
     /**
+     * Get the status from this key compared it to ISPConfig key data
      * @return int Comparison status of this key
      */
     public function getKeyStatus(){
@@ -56,6 +71,7 @@ class DNSKeyINWX{
     }
 
     /**
+     * Get the publication status of this key from INWX
      * @return string Publication status on INWX servers for this key
      */
     public function getPublishStatus(){
@@ -63,6 +79,7 @@ class DNSKeyINWX{
     }
 
     /**
+     * Get the system ID of this key on INWX servers
      * @return string ID of this key in INWX database
      */
     public function getKeyID(){
@@ -70,6 +87,7 @@ class DNSKeyINWX{
     }
 
     /**
+     * Get the origin name of the corresponding DNS Zone
      * @return string The origin of this key
      */
     public function __toString(){
@@ -77,6 +95,7 @@ class DNSKeyINWX{
     }
 
     /**
+     * Generate a string representation containing all relevant key information for key compairson and detail printout
      * @return string Returns the key data in a default format for compairson
      */
     public function getStringRepresentation() {

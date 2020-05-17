@@ -1,17 +1,24 @@
 <?php
-
+/**
+ * ISPClient Api Class
+ */
 
 namespace isp;
 
-
+/**
+ * Auto-Connects to ISPConfig Remote API and provides required operations with the client api lib
+ * @package isp
+ */
 class ISPClientApi extends ISPConnector
 {
     /**
+     * Instance of this class for singleton
      * @var ISPClientApi Instance of class for singleton
      */
     private static $_instance;
 
     /**
+     * Generate and return the singleton instance of this class
      * @return ISPClientApi Instance of ISPClientApi
      */
     public static function instance()
@@ -22,6 +29,7 @@ class ISPClientApi extends ISPConnector
     }
 
     /**
+     * Get all clients from ISPConfig
      * @return array = [[
      *     'client_id' => '42',
      *     'sys_userid' => '42',
@@ -51,7 +59,7 @@ class ISPClientApi extends ISPConnector
      *     'bank_account_iban' => '',
      *     'bank_account_swift' => '',
      *     'paypal_email' => ''
-     * ]]
+     * ]] All Clients
      */
     public function getAll()
     {

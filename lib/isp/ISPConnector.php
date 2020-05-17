@@ -1,15 +1,18 @@
 <?php
-
-
+/**
+ * Home of the ISPConnector class
+ */
 namespace isp;
-
-
 use core\CONSOLE;
 
+/**
+ * Automatically connects to ISPConfig Remote API during construct and terminates the session on destruct
+ * @package isp
+ */
 abstract class ISPConnector
 {
     /**
-     * @var \GDM\ISPConfig\SoapClient
+     * @var \GDM\ISPConfig\SoapClient Instance of ISPConfig Remote API Library
      */
     protected static $isp;
 
@@ -30,6 +33,9 @@ abstract class ISPConnector
         }
     }
 
+    /**
+     * Close the connection to ISPConfig Remote API on destruct
+     */
     public function __destruct()
     {
         if(self::$isp){

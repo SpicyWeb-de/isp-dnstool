@@ -1,16 +1,26 @@
 <?php
+/**
+ * INWX DNSSec Api Class
+ */
 namespace inwx;
 
 use core\CONSOLE;
 use core\DNSSecZone;
 
+/**
+ * Class INWXDNSSecApi
+ * Autoconnects to INWX Api and provides several operations to work with the API Data
+ * @package inwx
+ */
 class INWXDNSSecApi extends INWXConnector {
     /**
+     * Singleton instance of this class
      * @var INWXDNSSecApi Instance of this class for singleton
      */
     private static $_instance;
 
     /**
+     * Create and return the singleton instance of this class
      * @return INWXDNSSecApi Instance of singleton
      */
     public static function instance(): INWXDNSSecApi
@@ -104,7 +114,7 @@ class INWXDNSSecApi extends INWXConnector {
      */
     public function publishAllUnpublishedKeys(){
         printHeader("PUBLISHING ALL UNPUBLISHED KEYS");
-        $keys = DNSSecZone::getUnpublishedKeys();
+        $keys = DNSSecZone::getZonesWithUnpublishedKeys();
         foreach($keys as $key){
             $ispKey = $key->getISPKey();
             $params = [

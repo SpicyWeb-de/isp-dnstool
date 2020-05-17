@@ -1,8 +1,15 @@
 <?php
-
+/**
+ * Home of ISPDnsApi class
+ */
 
 namespace isp;
 
+/**
+ * Abstraction for API calls to ISPConfig Client API
+ *
+ * @package isp
+ */
 class ISPDnsApi extends ISPConnector
 {
     /**
@@ -11,6 +18,7 @@ class ISPDnsApi extends ISPConnector
     private static $_instance;
 
     /**
+     * Get the singleton instance
      * @return ISPDnsApi Get instance
      */
     public static function instance()
@@ -21,6 +29,7 @@ class ISPDnsApi extends ISPConnector
     }
 
     /**
+     * Get IDs of all DNS servers registered to the ISPConfig Master
      * @return string[] IDs of all DNS Servers registered on Master
      */
     public function getAllServerIds()

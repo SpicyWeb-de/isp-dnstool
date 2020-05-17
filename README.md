@@ -38,15 +38,20 @@ Further the tool provides several reportings like quantitative summary about you
 
 ### Requirements
 
-* Linux.  
+* __Linux.__  
   I didn't test it on Windows. It might work if you run the main script with the php interpreter from the console.  
   But maybe it will not.
-* Composer  
+* __PHP 7.2__  
+  May run with older versions, though. Simply not tested. 
+* __Composer__  
   Get from https://getcomposer.org/
-* ISPConfig Remote User  
-  Permissions: TBD
-* INWX User Credentials  
-  Plus TOTP secret token if you enabled Mobile TAN  
+* __ISPConfig Remote User__  
+  Required Permissions:
+    - Server functions
+    - Client functions
+    - DNS zone functions
+* __INWX User Credentials__  
+  Plus __TOTP secret token__ if you enabled Mobile TAN  
   If your Authenticator App is able to show the TOTP Data (like Bitwarden), it should look like that:  
   otpauth://totp/INWX?secret=THISISYOURSECRETDONTTELLANYONE&issuer=authenticator&digits=6&period=30
 
@@ -55,7 +60,7 @@ Further the tool provides several reportings like quantitative summary about you
 * Clone this repository  
   `git clone https://github.com/SpicyWeb-de/isp-dnstool.git && cd isp-dnstool`
 * Install dependencies
-  `composer install`
+  `composer install --no-dev`
 * Create environment file for your settings and edit it with your favorite editor
   `cp .env.dist .env`  
   `vi .env` | `nano .env` | `subl .env` | ...
@@ -139,3 +144,9 @@ For all future changes I have the Requirement to myself and every contributor to
 
 In the current codebase I don't see that options. 
 My excues for that is, that this code was never meant to be a CLI tool. It started as a simple top-down sync script without any options nor configuration. 
+
+### Docs
+
+To generate the class documentation, install PHPDocumentor on your machine (I simply download phpDocumentor.phar from the project page) and run it in the project root.
+
+You will also need to install php-xml and graphviz for successful doc generation.

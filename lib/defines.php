@@ -1,5 +1,7 @@
 <?php
-// Define zone status
+/**
+ * Several constant definitions used across this tool
+ */
 
 // Status Flags for Zone and Key status verification
 /**

@@ -1,5 +1,10 @@
 #!/usr/bin/php
 <?php
+/**
+ * The main entry point for this CLI app.
+ * Make executable to run the CLI with your systems default PHP version or run as input file for your favorite PHP binary
+ */
+
 if (php_sapi_name() !== 'cli') {
     exit;
 }
@@ -15,9 +20,19 @@ use \inwx\INWXDNSSecApi;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+/**
+ * Class DNSAPI
+ *
+ * Registers all available options for the CLI application and calls functions of this application dependent on
+ * provieded CLI commands and parameters
+ */
 class DNSAPI extends CLI
 {
-    // register options and arguments
+    /**
+     * Register available command- and parameterstructure of the CLI
+     *
+     * @param Options $options
+     */
     protected function setup(Options $options)
     {
         $options->setHelp('A helper tool to sync DNSSEC information from ISPConfig to INWX domain registry');
@@ -39,7 +54,14 @@ class DNSAPI extends CLI
         $options->registerArgument('origin', 'Origin Domain of DNS Zone (e.g. domain.tld.)', false, 'inwx');
     }
 
-    // implement your code
+    /**
+     * Main function of the CLI application
+     *
+     * This is where the entered commands, parameters and arguments are evaluated and corresponding library methods are called
+     *
+     * @param Options $options
+     * @throws ErrorException
+     */
     protected function main(Options $options)
     {
 
