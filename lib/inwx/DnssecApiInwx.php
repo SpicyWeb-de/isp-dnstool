@@ -14,7 +14,23 @@ use core\DNSSecZone;
  * @package inwx
  */
 class DnssecApiInwx extends DnssecApi  {
-    use INWXConnector;
+    use INWXConnector{
+        // Rename the connectors constructor to not conflict with this classes constructur
+        __construct as private initConnector;
+    }
+
+    /**
+     * DnssecApiInwx constructor.
+     * First initiates the API connection an then calls the parent constructor to initiate Data loading and zone verification
+     * @throws \ErrorException
+     */
+    public function __construct()
+    {
+        // first establish api connection
+        $this->initConnector();
+        // then call parent constructor that performs data loading
+        parent::__construct();
+    }
 
     /**
      * Load INWX Keys from API and feed to DNSSecZone
@@ -35,7 +51,7 @@ class DnssecApiInwx extends DnssecApi  {
      * Publish all unpublished Keys from ISPConfig to INWX
      * @return $this
      */
-    public function publishUnpublishedKeys(): self {
+    public function publishUnpublishedKeys(): DnssecApi {
         printHeader("PUBLISHING ALL UNPUBLISHED KEYS");
         $keys = DNSSecZone::getZonesWithUnpublishedKeys();
         foreach($keys as $key){

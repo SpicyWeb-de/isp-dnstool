@@ -31,6 +31,18 @@ abstract class DnssecApi
     }
 
     /**
+     * DnssecApi constructor.
+     * By default, load exported keys from ISPConfig and from Remote server and match the keys to verify the dnssec zone status
+     */
+    public function __construct()
+    {
+        $this->loadISPKeys()
+            ->loadRemoteKeys()
+            // Match the keys from ISPConfig and Remote
+            ->verifyZones();
+    }
+
+    /**
      * Load Keys from Remote API and feed to DNSSecZone Class
      * @return $this
      */
@@ -59,7 +71,7 @@ abstract class DnssecApi
      * Execute Matching of keys from ISPConfig and Remote
      * @return $this
      */
-    public function matchListedDomains(): self{
+    public function verifyZones(): self{
         DNSSecZone::verifyKeys();
         return $this;
     }

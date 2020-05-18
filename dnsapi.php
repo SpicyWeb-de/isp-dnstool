@@ -14,8 +14,6 @@ require 'lib/defines.php';
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
 use core\CONSOLE;
-use isp\ISPDnssec;
-use \inwx\DnssecApiInwx;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -64,59 +62,65 @@ class DNSAPI extends CLI
      */
     protected function main(Options $options)
     {
-
         if($options->getCmd() == 'isp') {
-            ISPDnssec::instance()->loadKeys();
+            $DnssecApi = \isp\ISPDnssec::instance();
+            $DnssecApi->loadKeys();
             if($options->getOpt('export')){
-                ISPDnssec::instance()->exportKeys();
+                $DnssecApi->exportKeys();
             }
         } elseif($options->getCmd() == 'inwx') {
-            if(count($options->getOpt()) === 0){
-                CONSOLE::warning("Please pass options to perform INWX actions");
-                echo $options->help();
-                return;
-            }
-            // Prepare. Load ISP Export file and published keys from INWX
-            DnssecApiInwx::instance()
-                ->loadISPKeys()
-                ->loadRemoteKeys()
-            // Match the keys from ISPConfig and INWX
-                ->matchListedDomains();
-            // loop all options and perform API actions in requested order
-            foreach($options->getOpt() as $opt => $optval){
-                switch($opt){
-                    case 'summary':
-                        DnssecApiInwx::instance()->printSummary();
-                        break;
-                    case 'report':
-                        DnssecApiInwx::instance()->printReport();
-                        break;
-                    case 'list':
-                        DnssecApiInwx::instance()->printDomainList();
-                        break;
-                    case 'publish':
-                        DnssecApiInwx::instance()->publishUnpublishedKeys();
-                        break;
-                    case 'clean':
-                        DnssecApiInwx::instance()->cleanCorruptedKeys($optval);
-                        DnssecApiInwx::instance()->cleanOrphanedKeys($optval);
-                        break;
-                    case 'cleanorphans':
-                        DnssecApiInwx::instance()->cleanOrphanedKeys();
-                        break;
-                    case 'cleancorrupt':
-                        DnssecApiInwx::instance()->cleanCorruptedKeys();
-                        break;
-                    case 'keylist':
-                        DnssecApiInwx::instance()->printZoneKeys($optval);
-                        break;
-                }
-            }
+            $DnssecApi = \inwx\DnssecApiInwx::instance();
+            $this->executeProviderAction($options, $DnssecApi);
         }
         elseif ($options->getOpt('version')) {
-            $this->info('1.0.0');
+            $jsonstring = file_get_contents('composer.json');
+            $jsondata = json_decode($jsonstring, true);
+            $this->info($jsondata['version']);
         } else {
             echo $options->help();
+        }
+    }
+
+    /**
+     * Execute the provider-specific action that was requested from CLI
+     * @param Options $options
+     * @param \core\DnssecApi $api Instance of a Provider API class extended from DnssecApi
+     */
+    private function executeProviderAction(Options $options, \core\DnssecApi $api){
+        if(count($options->getOpt()) === 0){
+            CONSOLE::warning("Please pass options to perform INWX actions");
+            echo $options->help();
+            return;
+        }
+        // loop all options and perform API actions in requested order
+        foreach($options->getOpt() as $opt => $optval){
+            switch($opt){
+                case 'summary':
+                    $api->printSummary();
+                    break;
+                case 'report':
+                    $api->printReport();
+                    break;
+                case 'list':
+                    $api->printDomainList();
+                    break;
+                case 'publish':
+                    $api->publishUnpublishedKeys();
+                    break;
+                case 'clean':
+                    $api->cleanCorruptedKeys($optval);
+                    $api->cleanOrphanedKeys($optval);
+                    break;
+                case 'cleanorphans':
+                    $api->cleanOrphanedKeys();
+                    break;
+                case 'cleancorrupt':
+                    $api->cleanCorruptedKeys();
+                    break;
+                case 'keylist':
+                    $api->printZoneKeys($optval);
+                    break;
+            }
         }
     }
 }

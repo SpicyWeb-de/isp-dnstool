@@ -8,14 +8,17 @@ I built this tool for my own needs. Currently it includes only sync with INWX an
 
 I don't say that there wont be future options to sync DNSSec keys with multiple hosters nor there wont be more sync jobs for e.g. domain contacts or to register a domain via CLI.
 At the moment I just don't need it and have too less spare time to build such features.
+Furthermore I currently don't have accounts with other providers that offer DNSSec AND provide an API to work with it.  
 
 If you find any bugs, please report them as issues.  
 Same for features you would like to see in future development of this tool.  
-As I said before, I don't have much spare time to develop new features. So please be patient.  
+As I said before, I don't have much spare time to develop new features. So please be patient.
+This is an free to use open source tool I develop in my spare time.
 
 __Call to Action__  
 If you are a coder yourself, want to implement a feature or close a bug and maintain the possibility to update the tool in future,
-feel free to place a Pull Request for your changes. Just make sure to keep the code maintainable and methods of your classes as well as attributs and parameters well documented.
+feel free to place a Pull Request for your changes. Just make sure to keep the code maintainable and methods of your classes as well as attributs and parameters well documented.  
+Also if you want to introduce another DNS provider to this tool, feel free to implement it. But please be aware, that to keep it going, I need to rely on you as maintainer for the API functions towards that provider. I cannot test and develop for an API that I don't have credentials for ;)
 
 ## What this ist
 
@@ -142,8 +145,9 @@ You may have noticed, that there already is a certain level of abstraction into 
 In some places this is better implemented than in others. 
 For all future changes I have the Requirement to myself and every contributor to move the level of maintainable abstraction forward in a direction that might enable development of further sync jobs (domain contacts, ...) or working with other providers.
 
-In the current codebase I don't see that options. 
-My excues for that is, that this code was never meant to be a CLI tool. It started as a simple top-down sync script without any options nor configuration. 
+~~In the current codebase I don't see that options.  
+My excues for that is, that this code was never meant to be a CLI tool. It started as a simple top-down sync script without any options nor configuration.~~  
+Since my initial commit to GitHub, I worked on furher abstraction of the provider-related code to the core CLI app. Using the remaining INWX related code as starting point it should be quite possible now to develop functions for furhter providers.
 
 ### Docs
 

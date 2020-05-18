@@ -11,7 +11,9 @@ use core\CONSOLE;
  */
 class ISPDnssec
 {
-    use ISPConnector;
+    use ISPConnector {
+        __construct as protected initConnector;
+    }
     /**
      * @var ISPDnssec Singleton instance
      */
@@ -38,13 +40,13 @@ class ISPDnssec
     } // cache keys after retrieving the first time
 
     /**
-     * ISPDnssec constructor.
+     * ISPDnssec constructor, called by trait constructor.
      * @throws \Exception
      */
     function __construct()
     {
         printHeader("ISPCONFIG DNSSEC EXPORTER");
-        parent::__construct();
+        $this->initConnector();
     }
 
     /**
@@ -62,6 +64,7 @@ class ISPDnssec
             foreach (ISPClientApi::instance()->getAll() as $client) {
                 $cid = $client['client_id'];
                 foreach ($dnsservers as $sid) {
+
                     $zones = self::$isp->dnsZoneGetByUser($cid, $sid);
                     foreach ($zones as $z) {
                         $zone = ISPDnsApi::instance()->getZone($z['id']);
